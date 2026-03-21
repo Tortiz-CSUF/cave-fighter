@@ -57,18 +57,21 @@ func _update_animation(direction: float, is_running: bool) -> void:
 			_play_anim("jump")
 		else:
 			_play_anim("jump_high")	
-	
-	
-	
-	
-	
-	
-	
+		anim.flip_h = not facing_right
+	elif direction != 0.0:
+		if is_running:
+			_play_anim("run")
+		else: 
+			_play_anim("walk")		
+		anim.flip_h = not facing_right
+	else:
+		_play_anim("idle")
+		anim.flip_h = false
+		
+
 func _play_anim(anim_name: String) -> void:
 	if anim.animaation != anim_name:
-		anim.play(anim_name
-		
-		)	
+		anim.play(anim_name)	
 	
 	
 	
