@@ -71,7 +71,40 @@ func _update_animation(direction: float, is_running: bool) -> void:
 
 func _play_anim(anim_name: String) -> void:
 	if anim.animaation != anim_name:
-		anim.play(anim_name)	
+		anim.play(anim_name)
+		
+
+func _on_animation_finished() -> void:
+	if is_dead:
+		return
+		
+	if is_hurt:
+		is_hurt = false
+		_play_anim("idle")
+		return
+	if is_attacking:
+		is_attacking = false
+		_play_anim("idle")
+		return
+		
+		
+func take_damage(amount: float, from_right: bool) -> void:
+	if is_dead or is_hurt:
+		return
+	
+	health -= amount
+	if health <= 0:
+		health = 0
+		is_dead = true
+		is_attacking = false
+		is_hurt = false
+		anim.flip_h = from_right
+		_play_anim("death")
+	else:
+		is_hurt = true
+		is_attacking = false
+		anim.flip.h = not facing_right
+		_play_anim("hurt")	
 	
 	
 	
