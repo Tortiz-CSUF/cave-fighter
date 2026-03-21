@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dg14bgfni8iim"]
+[gd_scene format=4 uid="uid://dg14bgfni8iim"]
 
 [ext_resource type="Texture2D" uid="uid://b3bcfhhixxa7n" path="res://assets/environment/Background/Bright/Background.png" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://bpoub61gmy3sh" path="res://assets/environment/Tiles_rock/tile1.png" id="2_fuf3a"]
@@ -264,5 +264,5 @@ texture = ExtResource("1_o5qli")
 centered = false
 
 [node name="PlatformTiles" type="TileMapLayer" parent="." unique_id=44346317]
-tile_map_data = PackedByteArray(0, 0, 9, 0, 8, 0, 6, 0, 0, 0, 0, 0, 0, 0, 5, 0, 8, 0, 8, 0, 0, 0, 0, 0, 0, 0, 7, 0, 8, 0, 16, 0, 0, 0, 0, 0, 0, 0)
+tile_map_data = PackedByteArray("AAAJAAgABgAAAAAAAAAFAAgACAAAAAAAAAAGAAgAEAAAAAAAAAAIAAgAEAAAAAAAAAAHAAYAAQAAAAAAAAAGAAYAAQAAAAAAAAAIAAYAAQAAAAAAAAAFAAYAAQAAAAAAAAAJAAYAAQAAAAAAAAAEAAYAAQAAAAAAAAAKAAYAAQAAAAAAAAALAAYAAQAAAAAAAAADAAYAAQAAAAAAAAACAAYAIAAAAAAAAAAMAAYAIQAAAAAAAAAFAAcABAAAAAAAAAAGAAcABAAAAAAAAAAHAAcABAAAAAAAAAAIAAcABAAAAAAAAAAJAAcABAAAAAAAAAAGAAkACAAAAAAAAAAIAAkABgAAAAAAAAAHAAkAEAAAAAAAAAAHAAoAIwAAAAAAAAAHAAgABAAAAAAAAAA=")
 tile_set = SubResource("TileSet_roort")
