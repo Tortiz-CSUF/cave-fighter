@@ -14,15 +14,15 @@ var is_hurt := false
 var is_attacking := false
 var can_double_jump := true
 var facing_right := true
-var game_started := false
+var game_started := true#false
 
 ## Node Refs
-@onready var anim: AnimatableBody2D = $AnimatedSprite2D
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
 
 func _ready() -> void:
 	anim.play("idle")
-	anim.animation_finished.conect(_on_animation_finished)
+	anim.animation_finished.connect(_on_animation_finished)
 
 func _physics_process(delta: float) -> void:
 	if is_dead:
@@ -112,7 +112,7 @@ func _update_animation(direction: float, is_running: bool) -> void:
 		
 
 func _play_anim(anim_name: String) -> void:
-	if anim.animaation != anim_name:
+	if anim.animation != anim_name:
 		anim.play(anim_name)
 		
 
