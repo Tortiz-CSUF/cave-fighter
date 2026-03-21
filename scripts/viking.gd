@@ -1,9 +1,28 @@
+### viking.gd
 extends CharacterBody2D
 
+## Movement Consts
+const WALK_SPEED := 130.0
+const RUN_SPEED := 220.0
+const JUMP_VELOCITY : = -350.0
+const GRAVITY := 800.0
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+## State Tracking
+var health := 10.0
+var is_dead := false
+var is_hurt := false
+var is_attacking := false
+var can_double_jump := true
+var facing_right := true
+var game_started := false
 
+## Node Refs
+@onready var anim: AnimatableBody2D = $AnimatedSprite2D
+
+
+func _ready() -> void:
+	anim.play("idle")
+	anim.animation_finished.conect(_on_animation_finished)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
