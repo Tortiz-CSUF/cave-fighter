@@ -20,6 +20,53 @@ window/size/viewport_width=960
 window/size/viewport_height=540
 window/stretch/mode="canvas_items"
 
+[input]
+
+viking_left={
+"deadzone": 0.2,
+"events": []
+}
+viking_right={
+"deadzone": 0.2,
+"events": []
+}
+viking_run={
+"deadzone": 0.2,
+"events": []
+}
+viking_jump={
+"deadzone": 0.2,
+"events": []
+}
+viking_attack1={
+"deadzone": 0.2,
+"events": []
+}
+viking_attack2={
+"deadzone": 0.2,
+"events": []
+}
+mage_left={
+"deadzone": 0.2,
+"events": []
+}
+mage_right={
+"deadzone": 0.2,
+"events": []
+}
+mage_run={
+"deadzone": 0.2,
+"events": []
+}
+mage_jump={
+"deadzone": 0.2,
+"events": []
+}
+mage_attack1={
+"deadzone": 0.2,
+"events": []
+}
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
