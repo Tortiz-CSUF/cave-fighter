@@ -46,4 +46,37 @@ func _physics_process(delta: float) -> void:
 
 
 func _start_attack(attack_name: String) -> void:
+	is_attacking = true
+	velocity.x = 0
+	_play_anim(attack_name)
+	
+	
+func _update_animation(direction: float, is_running: bool) -> void:
+	if not is_on_floor():
+		if can_double_jump:
+			_play_anim("jump")
+		else:
+			_play_anim("jump_high")	
+	
+	
+	
+	
+	
+	
+	
+func _play_anim(anim_name: String) -> void:
+	if anim.animaation != anim_name:
+		anim.play(anim_name
+		
+		)	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
