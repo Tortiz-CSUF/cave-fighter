@@ -59,11 +59,31 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_VELOCITY
 			can_double_jump = false
 			
+	var direction := 0.0
+	if Input.is_action_pressed("viking_left"):
+		direction = -1.0
+	elif  Input.is_action_pressed("viking_right"):
+		direction = 1.0
+		
+	var is_running := Input.is_action_pressed("viking_run") and direction != 0.0
+	var speed := RUN_SPEED if is_running else WALK_SPEED
 	
+	if direction != 0.0:
+		velocity.x = direction * speed
+		facing_right = direction > 0.0
+	else:
+		velocity.x = move_toward(velocity.x, 0, WALK_SPEED)
 		
+	if Input.is_action_just_pressed("viking_attack1"):
+		_start_attack("attack")
+		return
+	if Input.is_action_just_pressed("viking_attack2"):
+		_start_attack("attack_extra")
+		return
 		
-
 	move_and_slide()
+	
+	_update_animation(direction, is_running)
 
 
 
