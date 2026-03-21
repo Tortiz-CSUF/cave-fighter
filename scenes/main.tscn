@@ -515,5 +515,6 @@ tile_map_data = PackedByteArray("AAAJAAgACQAAAAAAAAAFAAgACgAAAAAAAAAGAAgABAAAAAA
 tile_set = SubResource("TileSet_roort")
 
 [node name="Rock1" type="Sprite2D" parent="." unique_id=1393529944]
-position = Vector2(480, 349)
+visible = false
+position = Vector2(480, 368)
 texture = ExtResource("52_1epgm")
