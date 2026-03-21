@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dg14bgfni8iim"]
+
+[ext_resource type="Texture2D" uid="uid://b3bcfhhixxa7n" path="res://assets/environment/Background/Bright/Background.png" id="1_o5qli"]
+
+[node name="Main" type="Node2D" unique_id=523441818]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=2035873172]
+texture = ExtResource("1_o5qli")
+centered = false
