@@ -4,7 +4,7 @@ extends CharacterBody2D
 ## Movement Consts
 const WALK_SPEED := 130.0
 const RUN_SPEED := 220.0
-const JUMP_VELOCITY : = -350.0
+const JUMP_VELOCITY := -350.0
 const GRAVITY := 800.0
 
 ## State Tracking
@@ -145,7 +145,7 @@ func take_damage(amount: float, from_right: bool) -> void:
 	else:
 		is_hurt = true
 		is_attacking = false
-		anim.flip.h = not facing_right
+		anim.flip_h = not facing_right
 		_play_anim("hurt")	
 	
 	
