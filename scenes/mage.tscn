@@ -1,7 +1,125 @@
 [gd_scene format=3 uid="uid://c5fr848a5yq30"]
 
+[ext_resource type="Texture2D" uid="uid://cokcdgo7cyssq" path="res://assets/characters/Mage/Idle/idle1.png" id="1_yunhw"]
+[ext_resource type="Texture2D" uid="uid://da6wktvyeu0s7" path="res://assets/characters/Mage/Idle/idle2.png" id="2_fi4q4"]
+[ext_resource type="Texture2D" uid="uid://b0p0bj0hmldke" path="res://assets/characters/Mage/Idle/idle3.png" id="3_1pdv6"]
+[ext_resource type="Texture2D" uid="uid://wa0taaw06c2" path="res://assets/characters/Mage/Idle/idle4.png" id="4_qtcmm"]
+[ext_resource type="Texture2D" uid="uid://cjyppjm5g0set" path="res://assets/characters/Mage/Idle/idle5.png" id="5_ut8cs"]
+[ext_resource type="Texture2D" uid="uid://bd37ylqcbmm2m" path="res://assets/characters/Mage/Idle/idle6.png" id="6_ad11k"]
+[ext_resource type="Texture2D" uid="uid://dy8oluf0j6eco" path="res://assets/characters/Mage/Idle/idle7.png" id="7_5qy3h"]
+[ext_resource type="Texture2D" uid="uid://6efnphgv4m5o" path="res://assets/characters/Mage/Idle/idle8.png" id="8_t4vt2"]
+[ext_resource type="Texture2D" uid="uid://62vt7ic3o86i" path="res://assets/characters/Mage/Idle/idle9.png" id="9_bgq4w"]
+[ext_resource type="Texture2D" uid="uid://bbrb68xot06df" path="res://assets/characters/Mage/Idle/idle10.png" id="10_1v1g5"]
+[ext_resource type="Texture2D" uid="uid://dsk7r62tyi2x7" path="res://assets/characters/Mage/Idle/idle11.png" id="11_8wtao"]
+[ext_resource type="Texture2D" uid="uid://c2owfry65pks5" path="res://assets/characters/Mage/Idle/idle12.png" id="12_kpj5n"]
+[ext_resource type="Texture2D" uid="uid://dp1ugc8daqyes" path="res://assets/characters/Mage/Idle/idle13.png" id="13_xkn1f"]
+[ext_resource type="Texture2D" uid="uid://bpcgvddkm2jdy" path="res://assets/characters/Mage/Idle/idle14.png" id="14_8phwc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b1ljq"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"attack_extra",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"fire",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"fire_extra",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yunhw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fi4q4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1pdv6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qtcmm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ut8cs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ad11k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5qy3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_t4vt2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bgq4w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_1v1g5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8wtao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kpj5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_xkn1f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_8phwc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"jump_high",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
 [node name="Mage" type="CharacterBody2D" unique_id=330020306]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=37027285]
+sprite_frames = SubResource("SpriteFrames_b1ljq")
+animation = &"idle"
+frame_progress = 0.30642194
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1559501473]
