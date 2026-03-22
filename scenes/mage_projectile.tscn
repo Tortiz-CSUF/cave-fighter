@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://buskq1rlvjnq6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vokvc"]
+
+[node name="MageProjectile" type="Area2D" unique_id=435061344]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1577923769]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2021007570]
+shape = SubResource("CircleShape2D_vokvc")
