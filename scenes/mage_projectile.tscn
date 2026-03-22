@@ -1,10 +1,104 @@
 [gd_scene format=3 uid="uid://buskq1rlvjnq6"]
 
+[ext_resource type="Script" uid="uid://bfqwmoc4whaki" path="res://scripts/mage_projectile.gd" id="1_5ihqa"]
+[ext_resource type="Texture2D" uid="uid://biauybpl0es14" path="res://assets/characters/Mage/Fire/fire1.png" id="2_kgnyt"]
+[ext_resource type="Texture2D" uid="uid://b5k0hoknq7t1t" path="res://assets/characters/Mage/Fire/fire2.png" id="3_f7n4i"]
+[ext_resource type="Texture2D" uid="uid://b62633gdbnfqs" path="res://assets/characters/Mage/Fire/fire3.png" id="4_hay7e"]
+[ext_resource type="Texture2D" uid="uid://cioie8ffmkpej" path="res://assets/characters/Mage/Fire/fire4.png" id="5_xycyi"]
+[ext_resource type="Texture2D" uid="uid://8t374qxobwj3" path="res://assets/characters/Mage/Fire/fire5.png" id="6_2b55c"]
+[ext_resource type="Texture2D" uid="uid://bye0p3aq8c6b1" path="res://assets/characters/Mage/Fire/fire6.png" id="7_3mkgv"]
+[ext_resource type="Texture2D" uid="uid://b1issu7ladg0e" path="res://assets/characters/Mage/Fire/fire7.png" id="8_7lic0"]
+[ext_resource type="Texture2D" uid="uid://6afgb8lhqyip" path="res://assets/characters/Mage/Fire/fire8.png" id="9_42ob5"]
+[ext_resource type="Texture2D" uid="uid://dtf7nwqbks532" path="res://assets/characters/Mage/Fire/fire9.png" id="10_i2gle"]
+[ext_resource type="Texture2D" uid="uid://d0tuinjg7l4mf" path="res://assets/characters/Mage/Fire_Extra/fire_extra1.png" id="11_or1ef"]
+[ext_resource type="Texture2D" uid="uid://c5670ivvixjn8" path="res://assets/characters/Mage/Fire_Extra/fire_extra2.png" id="12_8fp8t"]
+[ext_resource type="Texture2D" uid="uid://cx5mgagblw28k" path="res://assets/characters/Mage/Fire_Extra/fire_extra3.png" id="13_v15wk"]
+[ext_resource type="Texture2D" uid="uid://dvefko715lgwp" path="res://assets/characters/Mage/Fire_Extra/fire_extra4.png" id="14_c1i7u"]
+[ext_resource type="Texture2D" uid="uid://d2whu8n4ainy6" path="res://assets/characters/Mage/Fire_Extra/fire_extra5.png" id="15_sjktm"]
+[ext_resource type="Texture2D" uid="uid://gno180nxygyb" path="res://assets/characters/Mage/Fire_Extra/fire_extra6.png" id="16_y6f30"]
+[ext_resource type="Texture2D" uid="uid://bds3k283art4r" path="res://assets/characters/Mage/Fire_Extra/fire_extra7.png" id="17_weetc"]
+[ext_resource type="Texture2D" uid="uid://v4636ftn5oms" path="res://assets/characters/Mage/Fire_Extra/fire_extra8.png" id="18_fc7lc"]
+[ext_resource type="Texture2D" uid="uid://cqkyqfpbcqbre" path="res://assets/characters/Mage/Fire_Extra/fire_extra9.png" id="19_hshdy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_40ijw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kgnyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f7n4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hay7e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xycyi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2b55c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3mkgv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7lic0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_42ob5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_i2gle")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_or1ef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_8fp8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_v15wk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_c1i7u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_sjktm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_y6f30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_weetc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_fc7lc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_hshdy")
+}],
+"loop": true,
+"name": &"fire_extra",
+"speed": 8.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_vokvc"]
+radius = 15.0
 
 [node name="MageProjectile" type="Area2D" unique_id=435061344]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_5ihqa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1577923769]
+sprite_frames = SubResource("SpriteFrames_40ijw")
+animation = &"fire_extra"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2021007570]
+position = Vector2(-7, 10)
 shape = SubResource("CircleShape2D_vokvc")
