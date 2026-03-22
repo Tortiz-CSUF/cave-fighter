@@ -13,7 +13,7 @@ var is_dead := false
 var is_hurt := false
 var is_attacking := false
 var can_double_jump := true
-var facing_right := true
+var facing_right := false 		# mage starts on right side
 var game_started := true#false
 
 ## Node Refs
@@ -51,7 +51,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 		
-	if Input.is_action_just_pressed("viking_jump"):
+	if Input.is_action_just_pressed("mage_jump"):
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
 			can_double_jump = true
@@ -60,12 +60,12 @@ func _physics_process(delta: float) -> void:
 			can_double_jump = false
 			
 	var direction := 0.0
-	if Input.is_action_pressed("viking_left"):
+	if Input.is_action_pressed("mage_left"):
 		direction = -1.0
-	elif  Input.is_action_pressed("viking_right"):
+	elif  Input.is_action_pressed("mage_right"):
 		direction = 1.0
 		
-	var is_running := Input.is_action_pressed("viking_run") and direction != 0.0
+	var is_running := Input.is_action_pressed("mage_run") and direction != 0.0
 	var speed := RUN_SPEED if is_running else WALK_SPEED
 	
 	if direction != 0.0:
@@ -74,10 +74,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, WALK_SPEED)
 		
-	if Input.is_action_just_pressed("viking_attack1"):
+	if Input.is_action_just_pressed("mage_attack1"):
 		_start_attack("attack")
 		return
-	if Input.is_action_just_pressed("viking_attack2"):
+	if Input.is_action_just_pressed("mage_attack2"):
 		_start_attack("attack_extra")
 		return
 		

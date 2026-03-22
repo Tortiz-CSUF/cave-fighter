@@ -53,6 +53,7 @@
 [ext_resource type="Texture2D" uid="uid://bmabyut4vcsfd" path="res://assets/environment/Tiles_rock/tile10.png" id="37_gdvew"]
 [ext_resource type="Texture2D" uid="uid://cmtqx72csig7p" path="res://assets/environment/Background/Bright/rock1.png" id="52_1epgm"]
 [ext_resource type="PackedScene" uid="uid://5g2fibyn83vs" path="res://scenes/viking.tscn" id="53_o7ddy"]
+[ext_resource type="PackedScene" uid="uid://c5fr848a5yq30" path="res://scenes/mage.tscn" id="54_0loja"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_152kg"]
 texture = ExtResource("2_bu4jf")
@@ -532,3 +533,6 @@ position = Vector2(313, 334)
 position = Vector2(480, 406)
 scale = Vector2(37.058388, 1.6377269)
 shape = SubResource("RectangleShape2D_o7ddy")
+
+[node name="Mage" parent="." unique_id=330020306 instance=ExtResource("54_0loja")]
+position = Vector2(675, 329)
