@@ -575,7 +575,7 @@ offset_right = 365.5
 offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 600
+theme_override_constants/separation = 500
 
 [node name="VikingHealthBar" type="VBoxContainer" parent="UI/HealthUI" unique_id=201015822]
 layout_mode = 2
@@ -586,14 +586,15 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
 theme_override_font_sizes/font_size = 20
 text = "Player 1: Viking"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VikingProgressBar" type="ProgressBar" parent="UI/HealthUI/VikingHealthBar" unique_id=660553424]
+custom_minimum_size = Vector2(200, 20)
 layout_mode = 2
 theme_override_styles/fill = SubResource("StyleBoxFlat_ids8r")
 max_value = 10.0
 value = 10.0
+show_percentage = false
 
 [node name="MageHealthBar" type="VBoxContainer" parent="UI/HealthUI" unique_id=793616051]
 layout_mode = 2
@@ -604,13 +605,15 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
 theme_override_font_sizes/font_size = 20
 text = "Player 2: Mage"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="UI/HealthUI/MageHealthBar" unique_id=1547370124]
+custom_minimum_size = Vector2(200, 20)
 layout_mode = 2
 theme_override_styles/fill = SubResource("StyleBoxFlat_dnhof")
 max_value = 10.0
 value = 10.0
+show_percentage = false
 
 [node name="CountdownTimer" type="Timer" parent="." unique_id=1039580519]

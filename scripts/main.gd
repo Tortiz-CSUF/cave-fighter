@@ -9,7 +9,8 @@ var countdown_value := 3
 @onready var countdown_timer: Timer = $CountdownTimer
 @onready var viking: CharacterBody2D = $Viking
 @onready var mage: CharacterBody2D = $Mage
-
+@onready var viking_health_bar: ProgressBar = $UI/HealthUI/VikingHealthBar/VikingProgressBar
+@onready var mage_health_bar: ProgressBar = $UI/HealthUI/MageHealthBar/ProgressBar
 
 
 func _ready() -> void:
@@ -18,6 +19,10 @@ func _ready() -> void:
 	countdown_timer.timeout.connect(_oncountdown_timer_timeout)
 	countdown_timer.start()
 
+
+func _process(delta: float) -> void:
+	viking_health_bar.value = viking.health
+	mage_health_bar.value = mage.health
 
 func _oncountdown_timer_timeout() -> void:
 	countdown_value -= 1
