@@ -31,6 +31,8 @@ var current_attack_damage := 0.0
 func _ready() -> void:
 	anim.play("idle")
 	anim.animation_finished.connect(_on_animation_finished)
+	attack_shape.disabled = true
+	attack_area.body_entered.connect(_on_attack_body_entered)
 
 func _physics_process(delta: float) -> void:
 	if is_dead:
@@ -136,7 +138,14 @@ func _on_animation_finished() -> void:
 		is_attacking = false
 		_play_anim("idle")
 		return
-		
+
+
+func _on_attack_body_entered(body: Node2D) -> void:
+	if body.has_method("take_damage") and is_attacking:
+		var hit_from_right := global_position.x > body.global_position.x
+		body.take_damage(current_attack_damage, hit_from_right)
+	
+			
 		
 func take_damage(amount: float, from_right: bool) -> void:
 	if is_dead or is_hurt:
