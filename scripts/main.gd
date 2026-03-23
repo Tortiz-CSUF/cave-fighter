@@ -15,7 +15,7 @@ var game_over := false
 @onready var mage_health_bar: ProgressBar = $UI/HealthUI/MageHealthBar/ProgressBar
 @onready var results_screen: ColorRect = $UI/ResultsScreen
 @onready var winner_label: Label = $UI/ResultsScreen/ResultsContainer/WinnerLabel
-@onready var loser_laberl: Label = $UI/ResultsScreen/ResultsContainer/LoserLabel
+@onready var loser_label: Label = $UI/ResultsScreen/ResultsContainer/LoserLabel
 @onready var restart_button: Button = $UI/ResultsScreen/ResultsContainer/RestartButton
 @onready var quit_button: Button = $UI/ResultsScreen/ResultsContainer/QuitButton
 
@@ -26,7 +26,7 @@ func _ready() -> void:
 	countdown_timer.timeout.connect(_oncountdown_timer_timeout)
 	countdown_timer.start()
 	
-	results_screen.visilbe = false
+	results_screen.visible = false
 	restart_button.pressed.connect(_on_restart_pressed)
 	quit_button.pressed.connect(_on_quit_pressed)
 	
@@ -52,11 +52,20 @@ func _oncountdown_timer_timeout() -> void:
 
 
 func _on_viking_anim_finished() -> void:
-	pass
+	if viking.is_dead and not game_over:
+		_show_results("Player 2: Mage Wins!", "Player 1: Viking Loses!")
 	
 	
 func _on_mage_anim_finished() -> void:
-	pass
+	if mage.is_dead and not game_over:
+		_show_results("Player 1: Viking Wins!", "Player 2: Mage Loses!")
+	
+	
+func _show_results(winner_text: String, loser_text: String) -> void:
+	game_over = true
+	winner_label.text = winner_text
+	loser_label.text = loser_text
+	results_screen.visible = true	
 	
 	
 func _on_restart_pressed() -> void:
