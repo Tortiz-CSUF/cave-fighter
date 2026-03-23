@@ -85,22 +85,32 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, WALK_SPEED)
 		
 	if Input.is_action_just_pressed("viking_attack1"):
-		_start_attack("attack")
+		_start_attack("attack", ATTACK1_DAMAGE)
 		return
 	if Input.is_action_just_pressed("viking_attack2"):
-		_start_attack("attack_extra")
+		_start_attack("attack_extra", ATTACK2_DAMAGE)
 		return
 		
 	move_and_slide()
 	
 	_update_animation(direction, is_running)
+	_update_attack_hitbox_position()
 
 
-
-func _start_attack(attack_name: String) -> void:
+func _start_attack(attack_name: String, damage: float) -> void:
 	is_attacking = true
+	current_attack_damage = damage
 	velocity.x = 0
+	attack_shape.disabled = false
+	_update_attack_hitbox_position()
 	_play_anim(attack_name)
+	
+
+func _update_attack_hitbox_position() -> void:
+	if facing_right:
+		attack_area.position.x = abs(attack_area.position.x)
+	else:
+		attack_area.position.x = -abs(attack_area.position.x)
 	
 	
 func _update_animation(direction: float, is_running: bool) -> void:
@@ -136,6 +146,7 @@ func _on_animation_finished() -> void:
 		return
 	if is_attacking:
 		is_attacking = false
+		attack_shape.disabled = true
 		_play_anim("idle")
 		return
 
@@ -157,11 +168,13 @@ func take_damage(amount: float, from_right: bool) -> void:
 		is_dead = true
 		is_attacking = false
 		is_hurt = false
+		attack_shape.disabled = true
 		anim.flip_h = from_right
 		_play_anim("death")
 	else:
 		is_hurt = true
 		is_attacking = false
+		attack_shape.disabled = true
 		anim.flip_h = not facing_right
 		_play_anim("hurt")	
 	
