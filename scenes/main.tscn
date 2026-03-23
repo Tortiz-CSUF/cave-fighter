@@ -506,6 +506,12 @@ sources/35 = SubResource("TileSetAtlasSource_73205")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o7ddy"]
 size = Vector2(19, 10)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ids8r"]
+bg_color = Color(0, 0.7921569, 0.16078432, 0.78431374)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dnhof"]
+bg_color = Color(0, 0.7921569, 0.16078432, 0.78431374)
+
 [node name="Main" type="Node2D" unique_id=523441818]
 script = ExtResource("1_ids8r")
 
@@ -556,5 +562,55 @@ theme_override_font_sizes/font_size = 112
 text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HealthUI" type="HBoxContainer" parent="UI" unique_id=1455373023]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -365.5
+offset_top = -65.0
+offset_right = 365.5
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 600
+
+[node name="VikingHealthBar" type="VBoxContainer" parent="UI/HealthUI" unique_id=201015822]
+layout_mode = 2
+
+[node name="VikingLabel" type="Label" parent="UI/HealthUI/VikingHealthBar" unique_id=25314579]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 20
+text = "Player 1: Viking"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VikingProgressBar" type="ProgressBar" parent="UI/HealthUI/VikingHealthBar" unique_id=660553424]
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_ids8r")
+max_value = 10.0
+value = 10.0
+
+[node name="MageHealthBar" type="VBoxContainer" parent="UI/HealthUI" unique_id=793616051]
+layout_mode = 2
+
+[node name="MageLabel" type="Label" parent="UI/HealthUI/MageHealthBar" unique_id=1532761545]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 20
+text = "Player 2: Mage"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="UI/HealthUI/MageHealthBar" unique_id=1547370124]
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_dnhof")
+max_value = 10.0
+value = 10.0
 
 [node name="CountdownTimer" type="Timer" parent="." unique_id=1039580519]
