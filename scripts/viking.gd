@@ -128,7 +128,7 @@ func _update_animation(direction: float, is_running: bool) -> void:
 		anim.flip_h = not facing_right
 	else:
 		_play_anim("idle")
-		anim.flip_h = false
+	
 		
 
 func _play_anim(anim_name: String) -> void:

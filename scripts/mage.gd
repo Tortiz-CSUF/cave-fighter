@@ -101,6 +101,7 @@ func _physics_process(delta: float) -> void:
 func _start_attack(attack_anim: String, damage: float, proj_speed: float, proj_anim: String) -> void:
 	is_attacking = true
 	velocity.x = 0
+	anim.flip_h = not facing_right
 	pending_projectile = {
 		"damage": damage,
 		"speed": proj_speed,
@@ -143,7 +144,7 @@ func _update_animation(direction: float, is_running: bool) -> void:
 		anim.flip_h = not facing_right
 	else:
 		_play_anim("idle")
-		anim.flip_h = false
+		
 		
 
 func _play_anim(anim_name: String) -> void:
