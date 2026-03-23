@@ -310,7 +310,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("66_0x8ef")
 }],
-"loop": false,
+"loop": true,
 "name": &"run",
 "speed": 9.0
 }, {
@@ -333,7 +333,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("72_ggm5e")
 }],
-"loop": false,
+"loop": true,
 "name": &"walk",
 "speed": 8.0
 }]
@@ -354,7 +354,7 @@ script = ExtResource("1_lt7kk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1250502792]
 sprite_frames = SubResource("SpriteFrames_1rqwa")
-animation = &"hurt"
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=465278875]
 position = Vector2(-20, 19)

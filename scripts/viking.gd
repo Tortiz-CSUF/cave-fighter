@@ -31,7 +31,7 @@ var current_attack_damage := 0.0
 func _ready() -> void:
 	anim.play("idle")
 	anim.animation_finished.connect(_on_animation_finished)
-	attack_shape.disabled = true
+	attack_shape.set_deferred("disabled", true)
 	attack_area.body_entered.connect(_on_attack_body_entered)
 
 func _physics_process(delta: float) -> void:
@@ -101,7 +101,7 @@ func _start_attack(attack_name: String, damage: float) -> void:
 	is_attacking = true
 	current_attack_damage = damage
 	velocity.x = 0
-	attack_shape.disabled = false
+	attack_shape.set_deferred("disabled", false)
 	_update_attack_hitbox_position()
 	_play_anim(attack_name)
 	
@@ -146,7 +146,7 @@ func _on_animation_finished() -> void:
 		return
 	if is_attacking:
 		is_attacking = false
-		attack_shape.disabled = true
+		attack_shape.set_deferred("disabled", true)
 		_play_anim("idle")
 		return
 
@@ -168,13 +168,13 @@ func take_damage(amount: float, from_right: bool) -> void:
 		is_dead = true
 		is_attacking = false
 		is_hurt = false
-		attack_shape.disabled = true
+		attack_shape.set_deferred("disabled", true)
 		anim.flip_h = from_right
 		_play_anim("death")
 	else:
 		is_hurt = true
 		is_attacking = false
-		attack_shape.disabled = true
+		attack_shape.set_deferred("disabled", true)
 		anim.flip_h = not facing_right
 		_play_anim("hurt")	
 	
