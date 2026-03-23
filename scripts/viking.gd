@@ -18,7 +18,7 @@ var is_hurt := false
 var is_attacking := false
 var can_double_jump := true
 var facing_right := true
-var game_started := true#false
+var game_started := false
 var current_attack_damage := 0.0
 
 

@@ -23,7 +23,7 @@ var is_hurt := false
 var is_attacking := false
 var can_double_jump := true
 var facing_right := false 		# mage starts on right side
-var game_started := true#false
+var game_started := false
 var pending_projectile := {}
 
 ## Node Refs

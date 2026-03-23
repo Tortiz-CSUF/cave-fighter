@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://dg14bgfni8iim"]
 
+[ext_resource type="Script" uid="uid://dtpag5fkrk4n1" path="res://scripts/main.gd" id="1_ids8r"]
 [ext_resource type="Texture2D" uid="uid://b3bcfhhixxa7n" path="res://assets/environment/Background/Bright/Background.png" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://dna3rucbkoru7" path="res://assets/environment/Tiles_lava/lava_tile1.png" id="2_bu4jf"]
 [ext_resource type="Texture2D" uid="uid://bpoub61gmy3sh" path="res://assets/environment/Tiles_rock/tile1.png" id="2_fuf3a"]
@@ -506,6 +507,7 @@ sources/35 = SubResource("TileSetAtlasSource_73205")
 size = Vector2(19, 10)
 
 [node name="Main" type="Node2D" unique_id=523441818]
+script = ExtResource("1_ids8r")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=2035873172]
 texture = ExtResource("1_o5qli")
@@ -520,8 +522,7 @@ tile_map_data = PackedByteArray("AAAJAAgACQAAAAAAAAAFAAgACgAAAAAAAAAGAAgABAAAAAA
 tile_set = SubResource("TileSet_roort")
 
 [node name="Rock1" type="Sprite2D" parent="." unique_id=1393529944]
-visible = false
-position = Vector2(480, 368)
+position = Vector2(480, 350)
 texture = ExtResource("52_1epgm")
 
 [node name="Viking" parent="." unique_id=1413984632 instance=ExtResource("53_o7ddy")]
