@@ -3,6 +3,8 @@ extends Node2D
 
 # Couintdown
 var countdown_value := 3
+var game_over := false
+
 
 # Node REfs
 @onready var countdown_label: Label = $UI/CountdownLabel
@@ -11,6 +13,11 @@ var countdown_value := 3
 @onready var mage: CharacterBody2D = $Mage
 @onready var viking_health_bar: ProgressBar = $UI/HealthUI/VikingHealthBar/VikingProgressBar
 @onready var mage_health_bar: ProgressBar = $UI/HealthUI/MageHealthBar/ProgressBar
+@onready var results_screen: ColorRect = $UI/ResultsScreen
+@onready var winner_label: Label = $UI/ResultsScreen/ResultsContainer/WinnerLabel
+@onready var loser_laberl: Label = $UI/ResultsScreen/ResultsContainer/LoserLabel
+@onready var restart_button: Button = $UI/ResultsScreen/ResultsContainer/RestartButton
+@onready var quit_button: Button = $UI/ResultsScreen/ResultsContainer/QuitButton
 
 
 func _ready() -> void:
@@ -18,6 +25,9 @@ func _ready() -> void:
 	countdown_label.visible = true
 	countdown_timer.timeout.connect(_oncountdown_timer_timeout)
 	countdown_timer.start()
+	
+	results_screen.visilbe = false
+	restart_
 
 
 func _process(delta: float) -> void:
@@ -37,7 +47,11 @@ func _oncountdown_timer_timeout() -> void:
 		mage.game_started = true
 	
 	
+func _on_restart_pressed() -> void:
+	get_tree().reload_current_scene()
 	
+func _on_quit_pressed() -> void:
+	get_tree().quit()	
 	
 	
 	
