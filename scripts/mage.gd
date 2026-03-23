@@ -86,10 +86,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, WALK_SPEED)
 		
 	if Input.is_action_just_pressed("mage_attack1"):
-		_start_attack("attack")
+		_start_attack("attack", ATTACK1_DAMAGE, ATTACK1_SPEED, "fire")
 		return
 	if Input.is_action_just_pressed("mage_attack2"):
-		_start_attack("attack_extra")
+		_start_attack("attack_extra", ATTACK2_DAMAGE, ATTACK2_SPEED, "fire_extra")
 		return
 		
 	move_and_slide()
@@ -98,10 +98,17 @@ func _physics_process(delta: float) -> void:
 
 
 
-func _start_attack(attack_name: String) -> void:
+func _start_attack(attack_anim: String, damage: float, proj_speed: float, proj_anim: String) -> void:
 	is_attacking = true
 	velocity.x = 0
-	_play_anim(attack_name)
+	pending_projectile = {
+		"damage": damage,
+		"speed": proj_speed,
+		"anim": proj_anim,
+		"spawned": false
+	}
+	
+	_play_anim(attack_anim)
 	
 
 func _on_frame_changed() -> void:
@@ -154,6 +161,7 @@ func _on_animation_finished() -> void:
 		return
 	if is_attacking:
 		is_attacking = false
+		pending_projectile = {}
 		_play_anim("idle")
 		return
 		
