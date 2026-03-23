@@ -7,6 +7,10 @@ const RUN_SPEED := 220.0
 const JUMP_VELOCITY := -350.0
 const GRAVITY := 800.0
 
+## Attack Damage Vals
+const ATTACK1_DAMAGE := 1.0
+const ATTACK2_DAMAGE := 1.5
+
 ## State Tracking
 var health := 10.0
 var is_dead := false
@@ -15,9 +19,13 @@ var is_attacking := false
 var can_double_jump := true
 var facing_right := true
 var game_started := true#false
+var current_attack_damage := 0.0
+
 
 ## Node Refs
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var attack_area: Area2D = $AttackArea
+@onready var attack_shape: CollisionShape2D = $AttackArea/AttackShape
 
 
 func _ready() -> void:
