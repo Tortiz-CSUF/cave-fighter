@@ -27,7 +27,11 @@ func _ready() -> void:
 	countdown_timer.start()
 	
 	results_screen.visilbe = false
-	restart_
+	restart_button.pressed.connect(_on_restart_pressed)
+	quit_button.pressed.connect(_on_quit_pressed)
+	
+	viking.get_node("AnimatedSprite2D").animation_finished.connect(_on_viking_anim_finished)
+	mage.get_node("AnimatedSprite2D").animation_finished.connect(_on_mage_anim_finished)
 
 
 func _process(delta: float) -> void:
@@ -45,6 +49,14 @@ func _oncountdown_timer_timeout() -> void:
 		countdown_timer.stop()
 		viking.game_started = true
 		mage.game_started = true
+
+
+func _on_viking_anim_finished() -> void:
+	pass
+	
+	
+func _on_mage_anim_finished() -> void:
+	pass
 	
 	
 func _on_restart_pressed() -> void:
