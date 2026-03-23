@@ -7,6 +7,15 @@ const RUN_SPEED := 220.0
 const JUMP_VELOCITY := -350.0
 const GRAVITY := 800.0
 
+## Projectile Scene
+const PROJECTILE_SCENE := preload("res://scenes/mage_projectile.tscn")
+
+## Projectile Stats
+const ATTACK1_DAMAGE := 0.5
+const ATTACK2_DAMAGE := 1.0
+const ATTACK1_SPEED :=250.0
+const ATTACK2_SPEED := 150.0
+
 ## State Tracking
 var health := 10.0
 var is_dead := false
@@ -15,6 +24,7 @@ var is_attacking := false
 var can_double_jump := true
 var facing_right := false 		# mage starts on right side
 var game_started := true#false
+var pending_projectile := {}
 
 ## Node Refs
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
@@ -23,6 +33,7 @@ var game_started := true#false
 func _ready() -> void:
 	anim.play("idle")
 	anim.animation_finished.connect(_on_animation_finished)
+	anim.frame_changed.connect(_on_frame_changed)
 
 func _physics_process(delta: float) -> void:
 	if is_dead:
@@ -92,7 +103,24 @@ func _start_attack(attack_name: String) -> void:
 	velocity.x = 0
 	_play_anim(attack_name)
 	
+
+func _on_frame_changed() -> void:
+	if is_attacking and pending_projectile.size() > 0 and not pending_projectile["spawned"]:
+		if anim.frame >= 2:
+			_spawn_projectile()
+			pending_projectile["spawned"] = true
 	
+
+func _spawn_projectile() -> void:
+	var proj = PROJECTILE_SCENE.instantiate()
+	var dir := 1.0 if facing_right else -1.0
+	var spawn_offset := Vector2(50.0 * dir, 0.0)
+	proj.global_position = global_position + spawn_offset
+	proj.setup(dir, pending_projectile["damage"], pending_projectile["speed"], pending_projectile["anim"])
+	get_tree().current_scene.add_child(proj)
+	
+	
+
 func _update_animation(direction: float, is_running: bool) -> void:
 	if not is_on_floor():
 		if can_double_jump:
