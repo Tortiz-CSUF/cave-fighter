@@ -349,11 +349,12 @@ size = Vector2(30, 50)
 size = Vector2(40, 40)
 
 [node name="Viking" type="CharacterBody2D" unique_id=1413984632]
+collision_layer = 2
 script = ExtResource("1_lt7kk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1250502792]
 sprite_frames = SubResource("SpriteFrames_1rqwa")
-animation = &"walk"
+animation = &"hurt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=465278875]
 position = Vector2(-20, 19)

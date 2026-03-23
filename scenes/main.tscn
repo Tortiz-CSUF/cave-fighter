@@ -536,3 +536,22 @@ shape = SubResource("RectangleShape2D_o7ddy")
 
 [node name="Mage" parent="." unique_id=330020306 instance=ExtResource("54_0loja")]
 position = Vector2(675, 329)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=728075893]
+
+[node name="CountdownLabel" type="Label" parent="UI" unique_id=1962589322]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 90
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1

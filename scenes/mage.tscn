@@ -436,7 +436,11 @@ animations = [{
 radius = 20.0
 height = 60.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mm43k"]
+size = Vector2(30, 50)
+
 [node name="Mage" type="CharacterBody2D" unique_id=330020306]
+collision_layer = 4
 script = ExtResource("1_mm43k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=37027285]
@@ -448,3 +452,11 @@ frame_progress = 0.118386656
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1559501473]
 position = Vector2(-20, 19)
 shape = SubResource("CapsuleShape2D_kg2g3")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1407023875]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1787127288]
+position = Vector2(-20, 19)
+shape = SubResource("RectangleShape2D_mm43k")
